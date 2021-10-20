@@ -66,6 +66,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     min,
     max
   );
-
+  console.log(JSON.stringify(microphones));
   return { props: { microphones } };
 };

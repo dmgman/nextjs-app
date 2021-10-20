@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node ./test-migration.js && next dev",
+    "dev": "node ./test-migration.js && next dev -p 3031",
     "build": "node ./test-migration.js && next build",
     "export": "next export",
     "start": "next start"
