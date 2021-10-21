@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { Microphone } from '../../../model/Microphone';
-import { openDB } from '../../db';
+import { openDB } from "../../db";
 import React from 'react';
 
 interface MicrophoneDetailProps {
