@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { Microphone } from '../../../model/Microphone';
 import { openDB } from '../../db';
+import React from 'react';
 
 interface MicrophoneDetailProps {
   mic: Microphone[]
@@ -15,7 +16,7 @@ interface MicrophoneDetailProps {
 
 export default function MicrophoneDetail({ mic }: MicrophoneDetailProps) {
   if (!mic) {
-    return <div>Loading......I'm sorry for the wait!!</div>;
+    return <div>Loading......I am sorry for the wait!!</div>;
   }
 
   return (

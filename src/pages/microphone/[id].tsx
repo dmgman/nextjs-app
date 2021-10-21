@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { Microphone } from '../../../model/Microphone';
 import { openDB } from '../../openDB';
+import React from 'react'
 
 export type MicrophoneDetailProps = Microphone;
 
@@ -15,7 +16,7 @@ export default function MicrophoneDetail({
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading......I'm sorry for the wait!!</div>;
+    return <div>Loading......I am sorry for the wait!!</div>;
   }
 
   return (

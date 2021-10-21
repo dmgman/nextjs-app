@@ -1,13 +1,14 @@
-import { Grid } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { GetStaticProps } from 'next';
-import Link from 'next/link';
-import { Microphone } from '../../model/Microphone';
-import { openDB } from '../openDB';
+import { Grid } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import { GetStaticProps } from "next";
+import Link from "next/link";
+import { Microphone } from "../../model/Microphone";
+import { openDB } from "../openDB";
+import React from 'react';
 
 export interface IndexProps {
   microphones: Microphone[];
@@ -24,14 +25,14 @@ export default function Index({ microphones }: IndexProps) {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    alt={microphone.brand + ' ' + microphone.model}
+                    alt={microphone.brand + " " + microphone.model}
                     height="300"
                     image={microphone.imageurl}
-                    title={microphone.brand + ' ' + microphone.model}
+                    title={microphone.brand + " " + microphone.model}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {microphone.brand + ' ' + microphone.model}
+                      {microphone.brand + " " + microphone.model}
                     </Typography>
                     <Typography
                       variant="body2"
@@ -61,7 +62,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const db = await openDB();
   const microphones = await db.all(
-    'select * from microphone where id > ? and id <= ?',
+    "select * from microphone where id > ? and id <= ?",
     min,
     max
   );
