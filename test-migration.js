@@ -10,5 +10,5 @@ const sqlite3 = require('sqlite3');
 
     await db.migrate({force: true});
     const microphones = await db.all('select * from microphone');
-    console.log(JSON.stringify(microphones, null, 4));
+    // console.log(JSON.stringify(microphones, null, 4));
 })()

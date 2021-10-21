@@ -7,22 +7,23 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import { Microphone } from '../../../model/Microphone';
-import { openDB } from '../../openDB';
+import { openDB } from '../../db';
 
 interface MicrophoneDetailProps {
-  microphones: Microphone[]
+  mic: Microphone[]
 }
 
-export default function MicrophoneDetail({ microphones }: MicrophoneDetailProps) {
-
-  if (!microphones) {
+export default function MicrophoneDetail({ mic }: MicrophoneDetailProps) {
+  if (!mic) {
     return <div>Loading......I'm sorry for the wait!!</div>;
   }
 
   return (
     <Grid container spacing={3}>
-    {microphones.map((microphone) => (
+
+    {mic.map((microphone) => (
       <Grid item xs={12} sm={3} key={microphone.id}>
+
         <Link href="/microphone/[id]" as={`/microphone/${microphone.id}`}>
           <a>
             <Card>
@@ -58,9 +59,14 @@ export default function MicrophoneDetail({ microphones }: MicrophoneDetailProps)
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const name = ctx.params.name as string
   const db = await openDB();
-  const microphones = await db.all(`SELECT * FROM microphone WHERE brand = ?`, capitalize(name));
+  const microphones = await db
+    .from('microphone')
+    .select("*")
+    .eq('brand', capitalize(name));
 
-  return { props: { microphones }};
+  const mic = microphones.data;
+  console.log(JSON.stringify(mic));
+  return { props: { mic }};
 }
 
 function capitalize(string: any) {
