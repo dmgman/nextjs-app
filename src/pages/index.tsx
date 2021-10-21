@@ -56,7 +56,6 @@ export default function Index({ microphones }: IndexProps) {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const currentPage = ctx.params?.currentPage as string;
   const currentPageNumber = +(currentPage || 0);
-
   const min = currentPageNumber * 5;
   const max = (currentPageNumber + 1) * 5;
 
