@@ -64,7 +64,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     .eq('brand', capitalize(name));
 
   const mic = microphones.data;
-  console.log(JSON.stringify(mic));
   return { props: { mic }};
 }
 
