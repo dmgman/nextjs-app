@@ -28,3 +28,4 @@ INSERT INTO Microphone (brand, model, price, imageurl) values('Shure', 'Super-55
 
 -- Down
 DROP TABLE Microphone;
+-- Down
