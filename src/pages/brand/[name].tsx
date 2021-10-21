@@ -23,7 +23,6 @@ export default function MicrophoneDetail({ mic }: MicrophoneDetailProps) {
 
     {mic.map((microphone) => (
       <Grid item xs={12} sm={3} key={microphone.id}>
-
         <Link href="/microphone/[id]" as={`/microphone/${microphone.id}`}>
           <a>
             <Card>
@@ -32,7 +31,7 @@ export default function MicrophoneDetail({ mic }: MicrophoneDetailProps) {
                   component="img"
                   alt={microphone.brand + ' ' + microphone.model}
                   height="300"
-                  image={microphone.imageUrl}
+                  image={microphone.imageurl}
                   title={microphone.brand + ' ' + microphone.model}
                 />
                 <CardContent>

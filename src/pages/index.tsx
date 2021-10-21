@@ -26,7 +26,7 @@ export default function Index({ microphones }: IndexProps) {
                     component="img"
                     alt={microphone.brand + ' ' + microphone.model}
                     height="300"
-                    image={microphone.imageUrl}
+                    image={microphone.imageurl}
                     title={microphone.brand + ' ' + microphone.model}
                   />
                   <CardContent>

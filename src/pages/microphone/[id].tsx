@@ -10,7 +10,7 @@ export default function MicrophoneDetail({
   brand,
   model,
   price,
-  imageUrl,
+  imageurl,
 }: MicrophoneDetailProps) {
   const router = useRouter();
 
@@ -24,7 +24,7 @@ export default function MicrophoneDetail({
       <div>{brand}</div>
       <div>{model}</div>
       <div>{price}</div>
-      <div>{imageUrl}</div>
+      <div>{imageurl}</div>
     </div>
   );
 }

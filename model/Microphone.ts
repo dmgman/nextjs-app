@@ -3,5 +3,5 @@ export interface Microphone {
     brand: string;
     model: string;
     price: number;
-    imageUrl: string;
+    imageurl: string;
 }
