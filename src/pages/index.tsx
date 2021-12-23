@@ -7,19 +7,19 @@ import Typography from "@material-ui/core/Typography";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { Microphone } from "../../model/Microphone";
-import { openDB } from "../openDB";
+import { openDB } from "../db";
 import React from 'react';
 
 export interface IndexProps {
-  microphones: Microphone[];
+  mics: Microphone[];
 }
 
-export default function Index({ microphones }: IndexProps) {
+export default function Index({ mics }: IndexProps) {
   return (
     <Grid container spacing={3}>
-      {microphones.map((microphone) => (
+      {mics.map((microphone) => (
         <Grid item xs={12} sm={3} key={microphone.id}>
-          <Link href="/microphone/[id]" as={`/microphone/${microphone.id}`}>
+          <Link href="/microphone/[id]" prefetch={false} as={`/microphone/${microphone.id}`}>
             <a>
               <Card>
                 <CardActionArea>
@@ -61,11 +61,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const max = (currentPageNumber + 1) * 5;
 
   const db = await openDB();
-  const microphones = await db.all(
-    "select * from microphone where id > ? and id <= ?",
-    min,
-    max
-  );
+  const microphones = await db
+    .from('microphone')
+    .select('*')
+    .gt('id', min)
+    .lt('id', max);
 
-  return { props: { microphones } };
+  const mics = microphones.data;
+
+  return { props: { mics } };
 };
