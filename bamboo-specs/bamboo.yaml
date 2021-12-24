@@ -2,7 +2,7 @@ version: 1
 plan:
   project-key: PORT
   key: PORT
-  name: Portal
+  name: next app
 
 stages:
   - build:
