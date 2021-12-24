@@ -1,0 +1,21 @@
+version: 1
+plan:
+  project-key: PORT
+  key: PORT
+  name: Portal
+
+stages:
+  - build:
+      jobs:
+        - build
+
+build:
+  other:
+    pbc:
+      image: docker.io/ltv88/node.latest
+      size: SMALL
+  tasks:
+    - script: |
+        cd "next-isr"
+        npm ci
+        npm run build

@@ -1,0 +1,8 @@
+version: '1'
+
+services:
+  next-isr:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: ltv88/node:v1

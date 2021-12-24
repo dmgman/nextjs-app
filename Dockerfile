@@ -1,13 +1,14 @@
 FROM node:lts as dependencies
 WORKDIR /next-isr
+COPY package-lock.json ./
 COPY package.json ./
-RUN npm install --frozen-lockfile
+RUN npm ci
 
 FROM node:lts as builder
 WORKDIR /next-isr
 COPY . .
 COPY --from=dependencies /next-isr/node_modules ./node_modules
-RUN npm build
+RUN npm run build
 
 FROM node:lts as runner
 WORKDIR /next-isr
@@ -19,5 +20,5 @@ COPY --from=builder /next-isr/.next ./.next
 COPY --from=builder /next-isr/node_modules ./node_modules
 COPY --from=builder /next-isr/package.json ./package.json
 
-EXPOSE 3000
+EXPOSE 4000
 CMD ["npm", "start"]

@@ -1,21 +1,19 @@
 {
   "name": "next-isr",
   "version": "0.1.0",
-  "private": true,
+  "private": "true",
   "scripts": {
-    "dev": "node ./test-migration.js && next dev -p 3031",
-    "build": "node ./test-migration.js && next build",
+    "dev": "next dev",
+    "build": "next build",
     "export": "next export",
-    "start": "next start -p 3031"
+    "start": "next start -p ${PORT:=4000}"
   },
   "dependencies": {
     "@material-ui/core": "4.11.0",
     "@material-ui/icons": "4.9.1",
     "next": "^11.1.2",
     "react": "^17.0.2",
-    "react-dom": "16.13.1",
-    "sqlite": "^4.0.23",
-    "sqlite3": "^5.0.2"
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^1.24.0",

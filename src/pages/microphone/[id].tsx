@@ -40,8 +40,7 @@ export const getStaticProps: GetStaticProps<MicrophoneDetailProps> = async (
     .select('*')
     .eq('id', id)
   const mic = microphone.data[0];
-  console.log("->> "+ mic);
-  // await new Promise(res => setTimeout(res, 5000));
+  await new Promise(res => setTimeout(res, 5000));
 
   return {
     props: {
